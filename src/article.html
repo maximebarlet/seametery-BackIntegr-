@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre&display=swap" rel="stylesheet">
+    <script src="js/waypoints.js"></script>
+    <script defer src="js/article.js"></script>
+    <script defer src="js/request.js"></script>
+    <title>Opération Bismarck</title>
+</head>
+<body class="body">
+    <div id="embarquement" class="header">
+        <nav class="nav">
+            <ul class="nav__elements">
+                <li class="nav__element"><a href="expeditions.html"><img src="assets/steering-wheel.png" alt="gouvernail"></a></li>
+                <li class="nav__element">
+                    <svg class="sound__page" width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="whitoutSound" d="M14.5927 0.299834C14.0972 0.0115386 13.5109 0.0209395 13.024 0.322814C13.0007 0.336916 12.9783 0.353628 12.958 0.371386L6.0791 6.35822H0.680523C0.39978 6.35822 0.172852 6.59168 0.172852 6.88049V16.8037C0.172852 16.9426 0.226157 17.0753 0.321599 17.173C0.417041 17.2706 0.545482 17.326 0.680523 17.326L6.06691 17.3234L12.9423 23.8205C12.9677 23.8445 12.9951 23.8654 13.024 23.8831C13.2738 24.0383 13.5505 24.1161 13.8272 24.1161C14.0896 24.1156 14.3516 24.0461 14.5927 23.9061C15.0999 23.6116 15.403 23.0736 15.403 22.4673V1.73922C15.403 1.13286 15.0999 0.594919 14.5927 0.299834ZM14.3876 22.4673C14.3876 22.6924 14.2775 22.8903 14.0937 22.9974C14.015 23.0428 13.8155 23.1305 13.586 23.0109L6.77257 16.5718V14.1923C6.77257 13.9035 6.54564 13.6701 6.2649 13.6701C5.98416 13.6701 5.75723 13.9035 5.75723 14.1923V16.2793L1.18819 16.2814V7.40277H5.75723V9.49187C5.75723 9.78068 5.98416 10.0141 6.2649 10.0141C6.54564 10.0141 6.77257 9.78068 6.77257 9.49187V7.12283L13.5779 1.20024C13.8119 1.07384 14.0145 1.16368 14.0937 1.20964C14.2775 1.3167 14.3876 1.51464 14.3876 1.73922V22.4673Z" fill="#E8C300"/>
+                        <path class="mute" d="M19.8685 2.20741C19.6029 2.11497 19.3146 2.26121 19.2242 2.53436C19.1344 2.80698 19.2765 3.10416 19.542 3.19712C23.147 4.45633 25.5691 7.9305 25.5691 11.8423C25.5691 15.7505 23.1516 19.2252 19.5537 20.4881C19.2887 20.581 19.1465 20.8777 19.2374 21.1514C19.3095 21.3681 19.5065 21.5049 19.7177 21.5049C19.772 21.5049 19.8273 21.4961 19.8817 21.4767C23.8902 20.0702 26.5839 16.1986 26.5839 11.8429C26.5844 7.48239 23.8857 3.61076 19.8685 2.20741Z" fill="#E8C300"/>
+                        <path class="mute" d="M22.0158 11.8408C22.0158 8.72173 19.9805 5.93801 17.0665 5.07103C16.7959 4.99217 16.5162 5.15042 16.438 5.42827C16.3603 5.70507 16.5152 5.99493 16.7853 6.07484C19.2673 6.81282 21.001 9.18394 21.001 11.8408C21.001 14.4976 19.2673 16.8687 16.7853 17.6067C16.5157 17.6866 16.3603 17.9764 16.438 18.2532C16.5025 18.482 16.705 18.6308 16.9259 18.6308C16.9726 18.6308 17.0198 18.6241 17.0665 18.6105C19.981 17.7435 22.0158 14.9598 22.0158 11.8408Z" fill="#E8C300"/>
+                    </svg>
+                </li>
+            </ul>
+            <ul class="chapters">
+                <a href="#embarquement">
+                    <li class="chapter chapterOne is-scaling ">
+                        <svg class="chapter__svg" width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="embarquementLogo__path svg__path is-reading" d="M5.76812 1.38313C5.76812 0.615571 6.52049 0 7.45525 0C8.23041 0 8.87638 0.433179 9.07397 1.01835C9.09677 1.01835 9.11956 1.01075 9.14236 1.01075C9.84153 1.01075 10.4115 1.47433 10.4115 2.0519C10.4115 2.1887 10.3735 2.32549 10.3127 2.44708C10.7459 2.44708 11.0955 2.73587 11.0955 3.09305C11.0955 3.45024 10.7459 3.73902 10.3127 3.73902C9.87953 3.73902 9.52995 3.45024 9.52995 3.09305C9.52995 3.07025 9.53755 3.05505 9.53755 3.03986C9.41595 3.07025 9.27916 3.09305 9.14236 3.09305C8.71678 3.09305 8.3444 2.91826 8.11641 2.65987C7.91122 2.72827 7.69083 2.77387 7.45525 2.77387C6.52049 2.77387 5.76812 2.1507 5.76812 1.38313ZM6.53569 8.25321H4.2254C3.82262 8.25321 3.48823 8.52679 3.48823 8.85358V12.889L10.6699 10.0619L17.8515 12.889V8.85358C17.8515 8.51919 17.5248 8.25321 17.1144 8.25321H14.8041H6.53569ZM14.8117 7.64524V7.28045C14.8117 6.94607 14.4849 6.68008 14.0745 6.68008H12.2962L11.977 4.2786H9.36275L9.04357 6.68008H7.26525C6.86247 6.68008 6.52809 6.95367 6.52809 7.28045V7.65283H14.8117V7.64524ZM10.6699 10.7307L0 14.9333L3.16145 22.5101C4.62818 21.9478 6.51289 21.4234 8.4432 21.4234C11.5514 21.4234 14.0441 22.6393 17.3272 23.2549H17.8743L21.3474 14.9257L10.6699 10.7307Z"/>
+                        </svg> 
+                        <div class="chapter__title chapter__titleOne">
+                            <h2 class="chapter__subtitle chapter__subtitleOne">Embarquement</h2>
+                        </div>                           
+                    </li>
+                </a>
+                <a href="#contexte">
+                    <li class="chapter chapterTwo">
+                        <svg class="chapter__svg" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="contexteLogo__path svg__path" d="M3.18431 0C3.18375 0 3.18311 0 3.18255 0C2.98567 0 2.80048 0.0767501 2.66065 0.216232C2.51928 0.357256 2.44141 0.545031 2.44141 0.744932V11.9151C2.44141 12.3247 2.77595 12.6587 3.18725 12.6598C4.92117 12.6639 7.82618 13.0253 9.83024 15.1225V3.43266C9.83024 3.29381 9.79477 3.16337 9.72784 3.05543C8.083 0.406531 4.92215 0.00406531 3.18431 0Z"/>
+                            <path class="contexteLogo__path svg__path" d="M18.3751 11.9151V0.744932C18.3751 0.545031 18.2972 0.357256 18.1558 0.216232C18.016 0.0767501 17.8307 0 17.634 0C17.6334 0 17.6328 0 17.6322 0C15.8944 0.0041354 12.7336 0.406601 11.0887 3.0555C11.0217 3.16344 10.9863 3.29388 10.9863 3.43273V15.1225C12.9904 13.0253 15.8954 12.6639 17.6293 12.6598C18.0405 12.6587 18.3751 12.3247 18.3751 11.9151Z"/>
+                            <path class="contexteLogo__path svg__path" d="M20.0724 2.57422H19.5323V11.9133C19.5323 12.9591 18.6802 13.8119 17.6327 13.8145C16.162 13.818 13.737 14.1056 12.0195 15.7311C14.9899 15.0038 18.1211 15.4766 19.9057 15.8833C20.1285 15.934 20.3587 15.8816 20.5373 15.7393C20.7152 15.5974 20.8172 15.3852 20.8172 15.1575V3.31901C20.8173 2.90834 20.4831 2.57422 20.0724 2.57422Z"/>
+                            <path class="contexteLogo__path svg__path" d="M1.28492 11.9133V2.57422H0.744792C0.334196 2.57422 0 2.90834 0 3.31901V15.1573C0 15.385 0.102053 15.5971 0.279945 15.7391C0.458328 15.8813 0.688368 15.9339 0.91154 15.883C2.69607 15.4763 5.82741 15.0036 8.7976 15.7309C7.08022 14.1055 4.6552 13.8179 3.18447 13.8144C2.13709 13.8119 1.28492 12.9591 1.28492 11.9133Z"/>
+                        </svg>
+                        <div class="chapter__title chapter__titleTwo">
+                            <h2 class="chapter__subtitle chapter__subtitleTwo">Contexte</h2>
+                        </div>                             
+                    </li>
+                </a>
+                <a href="#interviews">
+                    <li class="chapter chapterThree">
+                        <svg class="chapter__svg" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="interviewLogo__path  svg__path" d="M10.9807 3.88908C10.9807 1.74186 9.57625 0 6.99986 0C4.42067 0 3.10938 1.74186 3.10938 3.88908V4.81672H10.98V3.88908H10.9807Z"/>
+                            <path class="interviewLogo__path svg__path" d="M6.99986 13.9996C9.57625 13.9996 10.9807 12.2591 10.9807 10.1119V5.49609H3.10938V10.1112C3.10938 12.2591 4.42067 13.9996 6.99986 13.9996Z"/>
+                            <path class="interviewLogo__path svg__path" d="M12.4444 4.66567V10.1111C12.4444 13.1131 10.4302 15.5551 6.99965 15.5551C3.56914 15.5551 1.55493 13.1131 1.55493 10.1111V4.66567C0.687503 3.79824 0 4.66567 0 4.66567V10.0964C0 10.1013 0 10.1055 0 10.1111C0 13.7131 2.72271 16.6781 6.22183 17.0652V19.4813L3.12177 19.4883L2.33135 21.7762H11.4117L10.6381 19.4792L7.77677 19.4799V17.0638C11.2773 16.676 13.9986 13.7117 13.9986 10.1097H14V4.66567C13.0451 3.71283 12.4444 4.66567 12.4444 4.66567Z"/>
+                        </svg>
+                        <div class="chapter__title chapter__titleThree">
+                            <h2 class="chapter__subtitle chapter__subtitleThree">Interviews</h2>
+                        </div>  
+                    </li>
+                </a>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="container__img"> 
+                <img src="assets/3D.png" alt="3D">
+            </div>
+            <div class="container__text">
+                <div class="text text--title">
+                    <h1 id="titre_one"></h1>
+                </div>
+                <div class="text text--subtitle">
+                    <p id="sous_titre_one"></p>
+                </div>
+                <div class="text text--date">
+                    <p id="date_one"></p>
+                </div>
+            </div>
+            <a href="#videos--firstPart"><div class="scrollIndicator"></div></a>
+        </div>
+        <audio class="sound__partOne" autoplay="true" loop>
+            <source src="assets/sounds/part1.mp3" type="audio/mp3"/>
+        </audio>
+    </div>
+    <div id="videos--firstPart" class="videos videos--firstPart">
+        <div class="video__player">
+            <video class="video__view" controls crossorigin playsinline poster="./assets/poster-part1.png">
+            <source src="assets/videos/3D_PART1.mp4" type="video/mp4"/>
+        </div>
+        <div class="video__other video__other--one">
+            <div class="video__discover video__discover--one">
+                <h2 class="discover__subtitle discover__subtitle--one">Découvrir</h2>
+            </div>  
+            <svg class="video__more" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.55548 30.6446L30.7857 0.974548C32.0683 -0.324501 34.1463 -0.324501 35.4321 0.974548C36.7147 2.27359 36.7147 4.38358 35.4321 5.68263L8.52045 32.9985L35.4289 60.3143C36.7115 61.6134 36.7115 63.7234 35.4289 65.0257C34.1463 66.3248 32.065 66.3248 30.7824 65.0257L1.55224 35.356C0.28934 34.0703 0.28934 31.9272 1.55548 30.6446Z" fill="#E8C300"/>
+            </svg>
+            <svg class="video__more is-display" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35.4445 35.3554L6.21432 65.0255C4.93172 66.3245 2.8537 66.3245 1.56786 65.0255C0.285255 63.7264 0.285255 61.6164 1.56786 60.3174L28.4796 33.0015L1.5711 5.68565C0.288498 4.38661 0.288498 2.27662 1.5711 0.974284C2.8537 -0.324761 4.93496 -0.324761 6.21756 0.974284L35.4478 30.644C36.7107 31.9297 36.7107 34.0728 35.4445 35.3554Z" fill="#E8C300"/>
+            </svg>
+            <div class="informations__contents">
+                <p class="informations__texte--one">Pisces V est un sous-marin d'exploration océanique submersible habité, qui est alimenté par batterie. En août 2002, Pisces V et sa sœur Pisces IV ont découvert un sous-marin japonais de la Seconde Guerre mondiale à l'extérieur de Pearl Harbor, celui-ci avait été coulé par le Destroyer USS Ward.</p>
+                <h2 class="title__part">PARTIE 2</h2>
+                <div class="line"></div>
+                <div class="next__video"></div>
+            </div>    
+        </div>
+    </div>
+    <div class="videos videos--secondPart is-display">
+        <div class="video__player">
+            <video class="video__view" controls crossorigin playsinline poster="./assets/poster-part2.png">
+            <source src="assets/videos/3D_PART2.mp4" type="video/mp4"/>
+        </div>
+        <div class="video__other video__other--second is-checked">
+            <div class="video__discover video__discover--two">
+                <h2 class="discover__subtitle discover__subtitle--two">Découvrir</h2>
+            </div>  
+            <svg class="video__more" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.55548 30.6446L30.7857 0.974548C32.0683 -0.324501 34.1463 -0.324501 35.4321 0.974548C36.7147 2.27359 36.7147 4.38358 35.4321 5.68263L8.52045 32.9985L35.4289 60.3143C36.7115 61.6134 36.7115 63.7234 35.4289 65.0257C34.1463 66.3248 32.065 66.3248 30.7824 65.0257L1.55224 35.356C0.28934 34.0703 0.28934 31.9272 1.55548 30.6446Z" fill="#E8C300"/>
+            </svg>
+            <svg class="video__more is-display" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35.4445 35.3554L6.21432 65.0255C4.93172 66.3245 2.8537 66.3245 1.56786 65.0255C0.285255 63.7264 0.285255 61.6164 1.56786 60.3174L28.4796 33.0015L1.5711 5.68565C0.288498 4.38661 0.288498 2.27662 1.5711 0.974284C2.8537 -0.324761 4.93496 -0.324761 6.21756 0.974284L35.4478 30.644C36.7107 31.9297 36.7107 34.0728 35.4445 35.3554Z" fill="#E8C300"/>
+            </svg>
+            <div class="informations__contents">
+                <p class="informations__texte--two">U-Boot est l’abréviation d'Unterseeboot qui signifie sous-marin en allemand. Mené par la Kriegsmarine leurs attaques prirent fin au milieu de 1942. Les Alliés utilisaient mieux l'asdic (ancêtre du sonar) permettant de capturer le 9 mai 1941, le sous-marin U-110 que son commandant n'avait pas réussi à saborder. Les progrès du radar rendirent possibles les repérages, de jour comme de nuit.</p>
+                <h2 class="title__part title__part--second">PARTIE 1</h2>
+                <div class="line line--second"></div>
+                <div class="next__video next__video--second"></div>
+            </div>    
+        </div>
+    </div>
+    <div id="robot" class="robot">
+        <div class="robot__image">
+            <img src="assets/robot.png">
+        </div>
+        <div class="robot__text">
+            <div class="text__container">
+                <div class="text__title">
+                    <h2 id="titre_two"></h2>
+                </div>
+                <div class="rectangle">
+                    <img src="assets/Rectangle 2.png">
+                </div>
+            </div>
+            <div class="text__info">
+                <div class="info__one">
+                    <p id="text_info_one"></p>
+                </div> 
+                <div class="info__two">
+                    <p id="text_info_two"></p>
+                </div>
+            </div>
+        </div>
+        <div class="confidential">
+            <div class="confidential__partTwo"></div>
+            <div class="confidential__partOne"></div>
+        </div>
+        <audio class="sound__partTwo" loop>
+            <source src="assets/sounds/sonar-sound.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <div id="contexte" class="bismarck">
+        <div class="container">
+            <div class="container__img"> 
+                <img src="assets/bismarck.png" alt="Bismarck">
+            </div>
+            <div class="container__text">
+                <div class="text text--title">
+                    <h1 id="titre_three"></h1>
+                </div>
+                <div class="text text--subtitle">
+                    <p id="sous_titre_two"></p>
+                </div>
+                <div class="text text--date">
+                    <p id="date_two"></p>
+                </div>
+            </div>
+        </div>
+        <audio class="sound__partThree" loop>
+            <source src="assets/sounds/contexte-sound.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <div id="videos--thirstPart" class="videos videos--thirstPart">
+        <div class="video__player">
+            <video class="video__view" controls crossorigin playsinline poster="./assets/poster-part3.png">
+            <source src="assets/videos/BISMARCK_PART1.mp4" type="video/mp4"/>
+        </div>
+        <div class="video__other video__other--thirst">
+            <div class="video__discover video__discover--three">
+                <h2 class="discover__subtitle discover__subtitle--three">Découvrir</h2>
+            </div>  
+            <svg class="video__more" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.55548 30.6446L30.7857 0.974548C32.0683 -0.324501 34.1463 -0.324501 35.4321 0.974548C36.7147 2.27359 36.7147 4.38358 35.4321 5.68263L8.52045 32.9985L35.4289 60.3143C36.7115 61.6134 36.7115 63.7234 35.4289 65.0257C34.1463 66.3248 32.065 66.3248 30.7824 65.0257L1.55224 35.356C0.28934 34.0703 0.28934 31.9272 1.55548 30.6446Z" fill="#E8C300"/>
+            </svg>
+            <svg class="video__more is-display" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35.4445 35.3554L6.21432 65.0255C4.93172 66.3245 2.8537 66.3245 1.56786 65.0255C0.285255 63.7264 0.285255 61.6164 1.56786 60.3174L28.4796 33.0015L1.5711 5.68565C0.288498 4.38661 0.288498 2.27662 1.5711 0.974284C2.8537 -0.324761 4.93496 -0.324761 6.21756 0.974284L35.4478 30.644C36.7107 31.9297 36.7107 34.0728 35.4445 35.3554Z" fill="#E8C300"/>
+            </svg>
+            <div class="informations__contents">
+                <p class="informations__texte--thirst">Durant leur trajet vers l'Atlantique Nord, le Bismarck accompagné du croiseur lourd Prinz Eugen furent repérés et l'Amirauté britannique déploya des unités de la Royal Navy pour les intercepter. Lors de la bataille du détroit de Danemark le 24 mai, le Bismarck détruisit le croiseur de bataille Hood, l'un des plus puissants navires britanniques, et obligea le cuirassé Prince of Wales à se replier.</p>
+                <h2 class="title__part title__part--thirst">UNE LÉGENDE</h2>
+                <div class="line line--thirst"></div>
+                <div class="next__video next__video--thirst"><a href="#conclusion"><div class="conclusion__link"></div></a></div>
+            </div>    
+        </div>
+    </div>
+    <div id="operation" class="operation">
+        <div class="operation__title">
+            <h2 id="titre_four"></h2>
+        </div>
+        <div class="operation__container">
+            <div class="operation__container--left">
+                <div class="operation__img--atlanta">
+                    <img src="assets/atlanta.png">
+                </div>
+                <div class="operation__container--ernst">
+                    <div class="operation__img--ernst">
+                        <img src="assets/ernst.png">
+                    </div>
+                    <div class="operation__text--ernst">
+                        <p id="nom"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="operation__container--right">
+                <p id="texte"></p>
+            </div>
+        </div>
+        <div class="slider__informations">
+            <div class="slider__partTwo"></div>
+            <div class="slider__partOne"></div>
+        </div>
+        <audio class="sound__partFour" loop>
+            <source src="assets/sounds/archives-sound.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <div id="interviews" class="interviews">
+        <div class="interviews__container">
+            <div class="interviews__img patrick">
+                <img src="assets/patrick.png">
+                <div class="interviews__text interviews__text--patrick">
+                    <div class="interviews__text--modifier">
+                        <p><span>Interview</span> de</p>
+                    </div>
+                    <div class="text__people">
+                        <p id="nom_pers_one"></p>
+                    </div>
+                    <div class="job__people">
+                        <p>Ancien Canonnier</p>
+                    </div>
+                </div>
+            </div>
+            <div class="interviews__img harley">
+                <img src="assets/Harley.png">
+                <div class="interviews__text interviews__text--harley">
+                    <div class="interviews__text--modifier">
+                        <p><span>Interview</span> de</p>
+                    </div>
+                    <div class="text__people text__people--harley">
+                        <p id="nom_pers_two"></p>
+                    </div>
+                    <div class="job__people job__people--harley">
+                        <p>Famille proche d'un soldat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="interviews__img marko">
+                <img src="assets/Marko.png">
+                <div class="interviews__text interviews__text--marko">
+                    <div class="interviews__text--modifier">
+                        <p><span>Interview</span> de</p>
+                    </div>
+                    <div class="text__people text__people--marko">
+                        <p id="nom_pers_three"></p>
+                    </div>
+                    <div class="job__people job__people--marko">
+                        <p>Officier marin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="interview__marko">
+        <div class="interview__left">
+            <a href="article.html#interviews">
+                <div class="left__arrow">
+                    <img src="assets/arrow-interview.png">
+                </div>
+            </a>
+            <div class="left__background">
+                <img src="assets/marko-left.png">
+            </div>
+        </div>
+        <div class="interview__right">
+            <div class="right__sound right__sound--marko">
+                <div class="sound__barre">
+                    <audio class="sound__partOne" src="assets/sounds/marko-interview.mp3" controls></audio>
+                </div>
+            </div>
+            <div class="right__container">
+                <div class="container__title">
+                    <h2>Marko Kaiser</h2>
+                </div>
+                <div class="container__subtitle">
+                    <p>23 mai 1926 - 18 décembre 2006</p>
+                </div>
+            </div>
+            <div class="right__citation">
+                <p class="citation__text">" Certains disaient que les cieux s’abattaient sur nous, d’autres que nous combattions un ennemi invisible donc invincible, je ne pouvais pas le voir mais je pouvais l’entendre, je n’oublirai jamais la frayeur dans leurs yeux"</p>
+            </div>
+        </div>
+    </div>
+    <div class="interview__harley">
+        <div class="interview__left--harley">
+            <a href="article.html#interviews">
+                <div class="left__arrow--harley">
+                    <img src="assets/arrow-interview.png">
+                </div>
+            </a>
+            <div class="left__background--harley">
+                <img src="assets/harley-left.png">
+            </div>
+        </div>
+        <div class="interview__right--harley">
+            <div class="right__sound--harley">
+                <div class="sound__barre--harley">
+                    <audio class="sound__partOne" src="assets/sounds/harley-interview.mp3" controls></audio>
+                </div>
+            </div>
+            <div class="right__container--harley">
+                <div class="container__title--harley">
+                    <h2>Harley R.Reed</h2>
+                </div>
+                <div class="container__subtitle--harley">
+                    <p>17 juin 1975</p>
+                </div>
+            </div>
+            <div class="right__citation--harley">
+                <p class="citation__text">"Mes tantes et ma mère ne le savaient pas. Mon arrière-grand-père est revenu à la vie civile, il a déménagé six fois, a eu quatre enfants avant d'être interné, à cause du traumatisme de la guerre. C'est ce qu'on appelle le stress post-traumatique”</p>
+            </div>
+        </div>
+    </div>
+    <div class="interview__patrick">
+        <div class="interview__left--patrick">
+            <a href="article.html#interviews">
+                <div class="left__arrow--patrick">
+                    <img src="assets/arrow-interview.png">
+                </div>
+            </a>
+            <div class="left__background--patrick">
+                <img src="assets/patrick-left.png">
+            </div>
+        </div>
+        <div class="interview__right--patrick">
+            <div class="right__sound--patrick">
+                <div class="sound__barre--patrick">
+                    <audio class="sound__partOne" src="assets/sounds/patrick-interview.mp3" controls></audio>
+                </div>
+            </div>
+            <div class="right__container--patrick">
+                <div class="container__title--patrick">
+                    <h2>Patrick Bumgarner</h2>
+                </div>
+                <div class="container__subtitle--patrick">
+                    <p>14 mars 1926 - 6 janvier 2001</p>
+                </div>
+            </div>
+            <div class="right__citation--patrick">
+                <p class="citation__text">"Je tirais aveuglement selon les coordonnées que l’on me donnait. Lorsqu’il me disait “touché !”, je savais que je venais de détruire la vie de centaines de familles sans même voir un seul visage ni entendre un seul son."</p>
+            </div>
+        </div>
+    </div>
+    <div id="videos--fourPart" class="videos videos--fourPart">
+        <div class="video__player">
+            <video class="video__view" controls crossorigin playsinline poster="./assets/poster-part4.png">
+            <source src="assets/videos/BISMARCK_PART2.mp4" type="video/mp4"/>
+        </div>
+        <div id="conclusion" class="video__other video__other--four">
+            <div class="video__discover video__discover--four">
+                <h2 class="discover__subtitle discover__subtitle--four">Découvrir</h2>
+            </div>  
+            <svg class="video__more" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.55548 30.6446L30.7857 0.974548C32.0683 -0.324501 34.1463 -0.324501 35.4321 0.974548C36.7147 2.27359 36.7147 4.38358 35.4321 5.68263L8.52045 32.9985L35.4289 60.3143C36.7115 61.6134 36.7115 63.7234 35.4289 65.0257C34.1463 66.3248 32.065 66.3248 30.7824 65.0257L1.55224 35.356C0.28934 34.0703 0.28934 31.9272 1.55548 30.6446Z" fill="#E8C300"/>
+            </svg>
+            <svg class="video__more is-display" width="37" height="66" viewBox="0 0 37 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35.4445 35.3554L6.21432 65.0255C4.93172 66.3245 2.8537 66.3245 1.56786 65.0255C0.285255 63.7264 0.285255 61.6164 1.56786 60.3174L28.4796 33.0015L1.5711 5.68565C0.288498 4.38661 0.288498 2.27662 1.5711 0.974284C2.8537 -0.324761 4.93496 -0.324761 6.21756 0.974284L35.4478 30.644C36.7107 31.9297 36.7107 34.0728 35.4445 35.3554Z" fill="#E8C300"/>
+            </svg>
+            <div class="informations__contents">
+                <p class="informations__texte--four">Le Bismarck fut neutralisé par l'intense bombardement britannique et il coula après avoir été sabordé par son équipage ; seuls 114 marins et un chat survécurent sur un effectif de plus de 2 200. Son épave fut localisée en juin 1989 par l'océanographe américain Robert Ballard  à 650 kilomètres au large de la côte française, à pratiquement 4 800 mètres de profondeur.</p>
+                <p class="is-yellow localisation__title">Coordonnées</p>
+                <p class="localisation__infos">48° 10′ 00″ nord, 16° 12′ 00″ ouest</p>
+                <h2 class="title__part title__part--four">Fiche technique</h2>
+                <div class="line line--four"></div>
+                <div class="next__video--four">
+                    <div class="lists">
+                        <h2 class="list__title">Equipage</h2>
+                        <ul class="list">
+                            <li>Commandant	Ernst Lindemann</li>
+                            <li>103 Officiers</li>
+                            <li>1962 Marins</li>
+                        </ul>
+                    </div>
+                    <div class="lists">
+                        <h2 class="list__title">Caractéristiques Techniques</h2>
+                        <ul class="list">
+                            <li><span class="list__span">Longueur :</span> 251 m</li>
+                            <li><span class="list__span">Maître-bau :</span>	36 m</li>
+                            <li><span class="list__span">Tirant d'eau :</span> 8,63 m à vide - 9,90 en charge</li>
+                            <li><span class="list__span">Déplacement :</span> 41 700 t</li>
+                            <li><span class="list__span">Port en lourd :</span> 50 300 t</li>
+                            <li><span class="list__span">Propulsion :</span> 12 chaudières</li>
+                            <li>3 turbines à vapeur</li>
+                            <li>3 hélices</li>
+                            <li><span class="list__span">Puissance :</span> 111,98 MW</li>
+                            <li><span class="list__span">Vitesse :</span> 30,01 nœuds 55,6 km/h</li>
+                        </ul>
+                    </div>
+                    <div class="lists">
+                        <h2 class="list__title">Caractéristiques Militaires</h2>
+                        <ul class="list">
+                            <li><span class="list__span">Blindage :</span> 320 mm ceinture</li>
+                            <li>50−120 mm pont principal</li>
+                            <li>130−360 mm tourelles</li>
+                            <li><span class="list__span">Armement :</span> 4 x 2 x 380mm</li>
+                            <li>6 x 2 x 150 mm en</li>
+                            <li>8 x 2 x 105 mm en</li>
+                            <li>8 x 2 x 37 mm SK C/30</li>
+                            <li>12 x 1 x 20 mm</li>
+                            <li><span class="list__span">Rayon d'action :</span> 16 430 km à 19 nœuds 35 km/h</li>
+                            <li><span class="list__span">Aéronefs :</span> 4 Arado Ar 196</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="redirection">
+        <h2 class="redirection__title">DECOUVREZ LES EXPEDITIONS SUIVANTES :</h2>
+        <div>
+            <div class="interviews__container">
+                <div class=interviews__img>
+                    <img src="assets/bateau1.png">
+                    <div class="interviews__text">
+                        <div class="interviews__text--modifier">
+                            <p id="nom_boat_one"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class=interviews__img>
+                    <img src="assets/bateau2.png">
+                    <div class="interviews__text">
+                        <div class="interviews__text--modifier">
+                            <p id="nom_boat_two"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1438 @@
+$indicator-size: 24px;
+
+// CUSTOMISATION DE LA SCROLLBAR
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #E8C300;
+}
+
+.body {
+    overflow-x: hidden;
+}
+
+.header {
+    background: url("../assets/fond\ flou.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1500;
+
+
+        .sound__page:hover {
+            cursor: pointer;
+        }
+
+        .sound__off {
+            fill:red;
+        }
+
+        .is-muted {
+            fill:rgba(255, 255, 255, 0);
+        }
+
+        .nav__element {
+            background-color:#000000;
+            padding: 23px 17px;
+        }
+
+        .nav__element:nth-child(2) {
+            border-top: 2px solid #E8C300;
+            border-bottom: 2px solid #E8C300;
+        }
+
+        .chapters {
+            position: fixed;
+            left: 30px;
+            top: 35%;
+            z-index: 3500;
+        }
+
+        .chapter {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: black;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 50%;
+        }
+
+        .chapters a:not(:nth-last-child(1)) {
+            margin-bottom: 15px;
+        }
+
+        .chapter svg path {
+            fill: white;
+        }
+
+        .chapter svg path.is-reading {
+            fill: #E8C300;
+        }
+
+        .chapter.is-scaling {
+            transform: scale(1.2);
+        }
+
+        .chapter__title {
+            font-size: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: absolute;
+            left: 45px;
+            background-color: black;
+            width: 0;
+            height: 0;
+            padding: 0px;
+            border-radius: 0 10px 10px 0;
+            opacity: 0;
+            transition: width .5s ease-out, height .3s ease-out .5s, opacity .7s linear;
+        }
+
+        .chapter__subtitle {
+            opacity: 0;
+            color: white;
+            transition: opacity .7s linear;
+        }
+
+        .is-subAsking {
+            opacity: 1;
+            transition: opacity .7s linear .6s;
+        }
+
+        .is-asking {
+            opacity: 1;
+            width: 140px;
+            height: 20px;
+            padding: 3px;
+            transition: width .5s ease-out, height .3s ease-out .5s, opacity .7s linear;
+        }
+    }
+
+    .container {
+        display: flex;
+
+        .container__img {
+            width: 83vw;
+            height: 80vh;
+            position: relative;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .container__text {
+            position: absolute;
+            z-index: 10;
+            color:white;
+            background: transparent;
+            font-family: 'old news';
+            margin-left: 6vw;
+            margin-top: 8vh;
+            display: flex;
+            flex-direction: column;
+
+            .text {
+                background-color: #000000;
+                font-size: 30px;
+                padding: 4px 2px;
+            }
+
+            .text:not(:nth-last-child(1)) {
+                margin-bottom: 10px;
+            }
+
+            .text--title {
+                font-size: 48px;
+                width: 21%;
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--title:hover {
+                transform: translateX(45px);
+                transition: transform .2s linear;
+            }
+
+            .text--subtitle {
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--subtitle:hover {
+                transform: translateX(55px);
+                transition: transform .2s linear;
+            }
+
+
+            .text--date {
+                width: 25%;
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--date:hover {
+                transform: translateX(35px);
+                transition: transform .2s linear;
+            }
+        }
+    }
+
+    @mixin scroll-indicator() {
+        $border-color: #E8C300;
+        $border-width: 3px;
+        border-radius: 0 0 0 2px;
+
+        position: absolute;
+        width: $indicator-size;
+        height: $indicator-size;
+        
+        transform: rotate(-45deg);
+        
+        border-bottom: $border-width solid $border-color;
+        border-left: $border-width solid $border-color;
+        box-sizing: border-box;
+    }
+
+    .scrollIndicator {
+        position: absolute;
+        width: 100%;
+        top: 87%;
+        right: 1%;
+        z-index: 1;
+        
+        &:before {
+            @include scroll-indicator();
+            content: "";
+            top: 0px;
+            left: 50%;
+            margin-left: -$indicator-size/2;
+            
+            animation: scroll-indicate 1.5s linear 0s infinite;
+        }
+        
+        &:after {
+            @include scroll-indicator();
+            content: "";
+            top: $indicator-size/2;
+            left: 50%;
+            margin-left: -$indicator-size/2;
+            animation: scroll-indicate 1.5s linear 0.25s infinite;
+        }
+    }
+}
+
+.videos {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/videopart1-bg.png");
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+
+    .video__view {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .video__other {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        top: 43%;
+        right: -420px;
+        transition: right .4s linear;
+        background-color: white;
+        height: 10Vh;
+        border-radius: 20px
+    }
+
+    .video__other:hover {
+        cursor: pointer;
+        right: -380px;
+        transition: right .4s linear;
+    }
+
+    .is-bouncingRight {
+        animation: bounceInRight 1.5s 3 5s;
+    }
+
+    .video__other.is-checked {
+        right: 0px;
+        transition: right .4s linear;
+    }
+
+    .video__more.is-display {
+        display: none;
+    }
+
+    .video__more {
+        width: 50px;
+        height: 50px;
+    }
+
+    .video__more:hover {
+        cursor: pointer;
+    }
+
+    .video__discover,
+    .video__discover--two,
+    .video__discover--three,
+    .video__discover--four {
+        background-color: white;
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+        padding: 0px;
+        transition: width .5s ease-out, height .3s ease-out .5s, opacity .7s linear;
+    }
+
+    .discover__subtitle,
+    .discover__subtitle--two,
+    .discover__subtitle--three,
+    .discover__subtitle--four {
+        color: #E8C300;
+        font-size: 20px;
+        font-weight: bold;
+        transform: translateX(150px);
+        opacity: 0;
+
+    }
+
+    .video__other:hover .discover__subtitle,
+    .video__other--two:hover .discover__subtitle--two,
+    .video__other--three:hover .discover__subtitle--three,
+    .video__other--four:hover .discover__subtitle--four  {
+        text-align: center;
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform .5s ease-out, opacity .7s linear;
+    }
+
+    .video__other:hover .video__discover,
+    .video__other--two:hover .video__discover--two,
+    .video__other--three:hover .video__discover--three,
+    .video__other--four:hover .video__discover--four {
+        opacity: 1;
+        width: 140px;
+        height: 20px;
+        padding: 3px;
+        transition: width .5s ease-out, height .3s ease-out .5s, opacity .7s linear;
+    }
+
+    .informations__contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: 'Abhaya Libre', serif;
+        background-color:#000000;
+        color:white;
+        width: 439px;
+        height: 488px;
+        position: relative;
+        border-radius: 15px 0px 0px 15px;
+        overflow: hidden;
+
+        p {
+            padding: 6% 6% 6% 10%;
+            font-size: 23px;
+        }
+
+        .is-fading {
+            opacity: 0.5;
+            transition: opacity .4s linear;
+        }
+
+        .title__part {
+            font-size: 20px;
+            position: absolute;
+            bottom: 50px;
+            transition: position .4s linear, bottom .4s linear;
+            padding: 20px 150px 20px 150px;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .title__part:hover {
+            cursor: pointer;
+        }
+
+        .line {
+            position: absolute;
+            bottom: 20px;
+            width: 40px;
+            background-color: #E8C300;
+            border: 2px solid #E8C300;
+            transform: rotate(-90deg);
+        }
+
+        .next__video {
+            height: 180px;
+            width: 25px;
+            background: url("../assets/poster-part2.png");
+             background-size: 100% 100%;
+            position: absolute;
+            bottom: -180px;
+        }
+
+        .next__video--second {
+            height: 180px;
+            width: 25px;
+            background: url("../assets/poster-part1.png");
+             background-size: 100% 100%;
+            position: absolute;
+            bottom: -180px;
+        }
+
+        .next__video--thirst {
+            height: 180px;
+            width: 25px;
+            background: url("../assets/poster-part4.png");
+             background-size: 100% 100%;
+            position: absolute;
+            bottom: -180px;
+        }
+        
+        .next__video--four {
+            height: 380px;
+            width: 25px;
+            background-color: rgba(255, 255, 255, 0.90);
+            position: absolute;
+            bottom: -380px;
+            color: #000000;
+            overflow: scroll;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            direction: rtl;
+
+            .lists, 
+            .list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .lists:not(:nth-last-child(1)) {
+                margin-bottom: 50px;
+            }
+
+            .lists:nth-last-child(1) {
+                margin-bottom: 30px;
+            }
+
+            .list__title {
+                font-weight: bold;
+                text-decoration: underline;
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+
+            .list__span {
+                font-weight: bold;
+            }
+        }
+
+        .next__video:hover {
+            cursor: pointer;
+        }
+
+        .is-up {
+            transform: translateY(-180px);
+            transition: transform .4s linear;
+        }
+
+        .is-up--four {
+            transform: translateY(-380px);
+            transition: transform .4s linear;
+        }
+
+        .is-animated {
+            width: 100%;
+            transition: width .4s linear;
+        }
+
+        .is-yellow {
+            color: #E8C300;
+        }
+
+        .localisation__title {
+            transform: translateY(-40px);
+        }
+
+        .localisation__infos {
+            transform: translateY(-80px);
+        }
+    }
+}
+
+.videos--secondPart {
+    background: url("../assets/videopart2-bg.png");
+}
+
+.videos--thirstPart {
+    background: url("../assets/videopart3-bg.png");
+}
+
+.videos--fourPart {
+    background: url("../assets/videopart4-bg.png");
+}
+
+.is-display {
+    display: none;
+}
+
+.conclusion__link {
+    width: 440px;
+    height: 180px;
+    opacity: 0;
+}
+
+.robot {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/robot-bg.png");
+    background-size: 100% 100%;
+    color:white;
+
+    .robot__text {
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .text__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-bottom: 12%;
+        }
+
+        .text__title {
+            font-family: "old news";
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 2%;
+        }
+
+        .text__info {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 18px;
+        }
+
+        .info__one {
+            line-height: 28px;
+            margin-bottom: 5%;
+        }
+
+        .info__two {
+            line-height: 24px;
+        }
+    }
+
+    .confidential {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        right: -104px;
+    }
+
+    .confidential__partOne {
+        width: 265px;
+        height: 750px;
+        background: url("../assets/confidentiel-1.png");
+        background-size: 100% 100%;
+        z-index: 2;
+    }
+
+    .confidential__partTwo {
+        position: absolute;
+        top: 10px;
+        right: -450px;
+        width: 604px;
+        height: 748px;
+        background: url("../assets/confidentiel-2.png");
+        background-size: 100% 100%;
+        z-index: 1;
+        transition: right .4s linear;
+    }
+
+    .confidential__partOne:hover {
+        cursor: pointer;
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    .is-demiSlide {
+        right: -370px;
+        transition: right .4s linear;
+    }
+
+    .is-slide {
+        right: 150px;
+        transition: right .4s linear;
+    }
+}
+
+.bismarck {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/fond-bismarck.png");
+    background-size: 100% 100%;
+
+    .container {
+        display: flex;
+
+        .container__img {
+            width: 83vw;
+            height: 80vh;
+            position: relative;
+            z-index:1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                filter: brightness(0.8);
+            }
+        }
+
+        .container__text {
+            position: absolute;
+            z-index: 10;
+            color:white;
+            background: transparent;
+            font-family: 'old news';
+            margin-left: 6vw;
+            margin-top: 8vh;
+            display: flex;
+            flex-direction: column;
+
+            .text {
+                background-color: #000000;
+                font-size: 30px;
+                padding: 4px 2px;
+            }
+
+            .text:not(:nth-last-child(1)) {
+                margin-bottom: 10px;
+            }
+
+            .text--title {
+                font-size: 48px;
+                width: 21%;
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--title:hover {
+                transform: translateX(55px);
+                transition: transform .2s linear;
+            }
+
+            .text--subtitle {
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--subtitle:hover {
+                transform: translateX(65px);
+                transition: transform .2s linear;
+            }
+
+            .text--date {
+                width: 65%;
+                transform: translateX(0px);
+                transition: transform .2s linear;
+            }
+
+            .text--date:hover {
+                transform: translateX(40px);
+                transition: transform .2s linear;
+            }
+        }
+    }
+}
+
+.operation {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("../assets/fond-operation.png");
+    background-size: 100% 100%;
+
+    .operation__title {
+        display: flex;
+        justify-content: center;
+        font-family: 'Abhaya Libre', serif;
+        font-size: 50px;
+        text-transform: uppercase;
+        color:white;
+        text-align: center;
+
+        h2 {
+            background-color: #000000;
+            padding: 15px;
+            width: 976px;
+        }
+    }
+
+    .operation__container {
+        display: flex;
+        
+        .operation__container--left {
+            margin-left: 9%;
+            margin-right: 90px;
+            position: relative;
+        }
+
+        .operation__img--atlanta {
+            z-index:1;
+        }
+
+        .operation__text--ernst {
+            display: flex;
+            align-items: flex-end;
+            transform: translateY(-35px);
+        }
+
+        .operation__container--right {
+            margin-right: 10%;
+            margin-top: 2%;
+            font-size: 35px;
+            font-family: 'Abhaya Libre', serif;
+            background-color:#000000;
+            color:white;
+            width: 439px;
+            height: 488px;
+            overflow: scroll;
+            overflow-x: hidden;
+            direction: rtl;
+
+            p {
+                padding: 6% 6% 6% 10%;
+                direction: ltr;
+            }
+        }
+
+        .operation__container--ernst {
+            display: flex;
+            font-size: 30px;
+            font-family: 'Abhaya Libre', serif;
+            color:white;
+            margin-left: 10%;
+            z-index: 2;
+            position: absolute;
+            top: 40%;
+
+            p {
+                background-color:#000000;
+                width: 360px;
+                padding: 3%;
+                margin-bottom: 2%;
+            }
+        }
+    }
+
+    .slider__informations {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        right: -105px;
+    }
+
+    .slider__partOne {
+        width: 265px;
+        height: 750px;
+        background: url("../assets/confidentiel-1.png");
+        background-size: 100% 100%;
+        z-index: 2;
+    }
+
+    .slider__partTwo {
+        position: absolute;
+        right: -400px;
+        width: 561px;
+        height: 655px;
+        transform: translateY(-6px);
+        background: url("../assets//slider-2.png");
+        background-size: 100% 100%;
+        z-index: 1;
+        transition: right .4s linear;
+    }
+
+    .slider__partOne:hover {
+        cursor: pointer;
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    .is-demiSlide {
+        right: -370px;
+        transition: right .4s linear;
+    }
+
+    .is-demiSlideTwo {
+        right: -300px;
+        transition: right .4s linear;
+    }
+
+    .is-slide {
+        right: 150px;
+        transition: right .4s linear;
+    }
+}
+
+.interviews {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+
+    img {
+        width: 25vw;
+        height: 684px;
+    }
+
+    .interviews__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .interviews__img {
+        z-index: 1;
+    }
+
+    .interviews__img {
+        margin-left: 60px;
+    }
+
+    .interviews__text {
+        display: block;
+        z-index: 2;
+        color:white;
+        font-size: 48px;
+        font-family: "old news";
+        position: absolute;
+        top: 40%;
+        margin-left: 3%;
+
+        span {
+            background-color:#000000;
+            padding: 2% 2px;
+        }
+
+        .interviews__text--modifier {
+            margin-bottom: 10%;
+        }
+
+        .text__people {
+            font-size: 30px;
+            background-color:#000000;
+            padding: 2% 0%;
+        }
+
+        .text__people--harley {
+            width: 220px;
+        }
+
+        .text__people--marko {
+            width: 205px;
+        }
+
+        .job__people {
+            width: 190px;
+            margin-top: 20px;
+            font-size: 20px;
+            background-color:white;
+            color: black;
+            padding: 2% 0%;
+            text-align: center;
+        }
+
+        .job__people--harley {
+            width: 270px;
+        }
+
+        .job__people--marko {
+            width: 150px;
+        }
+    }
+
+    .interviews__text--patrick {
+        transform: translate(-300px, -350px);
+        opacity: 0;
+        transition: transform .7s linear, opacity .8s linear;
+    }
+
+    .interviews__text--harley {
+        transform: translate(130px, 450px);
+        opacity: 0;
+        transition: transform .7s linear, opacity .8s linear;
+    }
+
+    .interviews__text--marko {
+        transform: translate(400px, -250px);
+        opacity: 0;
+        transition: transform .7s linear, opacity .8s linear;
+    }
+
+    .patrick:hover .interviews__text--patrick,
+    .harley:hover .interviews__text--harley,
+    .marko:hover .interviews__text--marko {
+        transform: translate(0, 0);
+        opacity: 1;
+        transition: transform .5s linear, opacity .6s linear;
+    }
+
+    .patrick,
+    .harley,
+    .marko {
+        overflow: hidden;
+        filter: grayscale(50%) blur(1.5px);
+        transform: scale(1);
+        transition: filter .4s linear, transform .4s linear;;
+        
+    }
+
+    .patrick:hover,
+    .harley:hover,
+    .marko:hover  {
+        transform: scale(1.01);
+        filter: grayscale(0%) blur(0px);
+        box-shadow: 0 0 0 0 rgba(0,0,0,0.75);
+        transition: filter .4s linear, box-shadow .5s linear, transform .4s linear;
+    }
+
+    .patrick:hover {
+        box-shadow: -25px 32px 54px 10px rgba(0,0,0,0.75);
+        transition: box-shadow .5s linear;
+    }
+
+    .marko:hover {
+        box-shadow: 36px 32px 54px 10px rgba(0,0,0,0.75);
+        transition: box-shadow .5s linear;
+    }
+
+    .harley:hover {
+        box-shadow: 7px 14px 54px 14px rgba(0,0,0,0.75);
+        transition: box-shadow .5s linear;
+    }
+}
+
+.interview__marko {
+    display: none;
+    background: url("../assets/background-marko.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    transform: translateY(100%);
+    
+    .interview__left {
+        position: relative;
+        transform: translateX(-600px);
+        opacity: 0;
+
+        .left__background img {
+            height: 100vh;
+        }
+
+        .left__arrow img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateX(0);
+            transition: transform .2s linear;
+        }
+
+        .left__arrow img:hover {
+            transform: translateX(-15px);
+            transition: transform .2s linear;
+        }
+    }
+
+    .interview__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 5% 0% 5% 7%;
+
+        .right__sound {
+
+            display: flex;
+
+            .sound__pause {
+                margin-right: 3%;
+            }
+
+            .sound__barre {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 40%;
+                }
+            }
+        }
+
+        .right__container {
+
+            .container__title {
+                font-family: "old news";
+                font-size: 48px;
+                background-color:#000000;
+                width: 40%;
+                color:white;
+                margin-bottom: 3%;
+                transform: translateX(850px);
+                opacity: 0;
+            }
+
+            .container__title:hover {
+                transform: translateX(25px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle {
+                font-family: "old news";
+                font-size: 30px;
+                background-color:#000000;
+                width: 60%;
+                color:white;
+                opacity: 0;
+                transform: translateX(850px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle:hover {
+                transform: translateX(40px);
+                transition: transform .2s linear;
+            }
+
+            .is-coming {
+                opacity: 1;
+                transform: translateX(0);
+                transition: transform .7s linear, opacity .7s linear;
+            }
+        }
+
+        .right__citation {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 35px;
+            background-color:#000000;
+            width: 70%;
+            color:white;
+            padding: 5%;
+            overflow: scroll;
+            transform: translateX(850px);
+            opacity: 0;
+            transition: transform .2s linear;
+            overflow-y: hidden;
+        }
+
+        .right__citation:hover {
+            transform: translateX(40px);
+            transition: transform .2s linear;
+        }
+
+        .is-coming {
+            opacity: 1;
+            transform: translateX(0);
+            transition: transform .7s linear, opacity .7s linear;
+        }
+    }
+}
+
+.interview__harley {
+    display: none;
+    background: url("../assets/harley-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    transform: translateY(100%);
+    
+    .interview__left--harley {
+        position: relative;
+        transform: translateX(-600px);
+        opacity: 0;
+
+        .left__background--harley img {
+            height: 100vh;
+        }
+
+        .left__arrow--harley img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateX(0);
+            transition: transform .2s linear;
+        }
+
+        .left__arrow--harley img:hover {
+            transform: translateX(-15px);
+            transition: transform .2s linear;
+        }
+    }
+
+    .interview__right--harley {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 5% 0% 5% 7%;
+
+        .right__sound--harley {
+
+            display: flex;
+
+            .sound__pause--harley {
+                margin-right: 3%;
+            }
+
+            .sound__barre--harley {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 40%;
+                }
+            }
+        }
+
+        .right__container--harley {
+
+            .container__title--harley {
+                font-family: "old news";
+                font-size: 48px;
+                background-color:#000000;
+                width: 40%;
+                color:white;
+                margin-bottom: 3%;
+                transform: translateX(850px);
+                opacity: 0;
+            }
+
+            .container__title--harley:hover {
+                transform: translateX(25px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle--harley {
+                font-family: "old news";
+                font-size: 30px;
+                background-color:#000000;
+                width: 60%;
+                color:white;
+                opacity: 0;
+                transform: translateX(850px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle--harley:hover {
+                transform: translateX(40px);
+                transition: transform .2s linear;
+            }
+
+            .is-coming {
+                opacity: 1;
+                transform: translateX(0);
+                transition: transform .7s linear, opacity .7s linear;
+            }
+        }
+
+        .right__citation--harley {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 35px;
+            background-color:#000000;
+            width: 70%;
+            color:white;
+            padding: 5%;
+            overflow: scroll;
+            transform: translateX(850px);
+            opacity: 0;
+            transition: transform .2s linear;
+            overflow-y: hidden;
+        }
+
+        .right__citation--harley:hover {
+            transform: translateX(40px);
+            transition: transform .2s linear;
+        }
+
+        .is-coming {
+            opacity: 1;
+            transform: translateX(0);
+            transition: transform .7s linear, opacity .7s linear;
+        }
+    }
+}
+
+.interview__patrick {
+    display: none;
+    background: url("../assets/patrick-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    transform: translateY(100%);
+    
+    .interview__left--patrick {
+        position: relative;
+        transform: translateX(-600px);
+        opacity: 0;
+
+        .left__background--patrick img {
+            height: 100vh;
+        }
+
+        .left__arrow--patrick img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateX(0);
+            transition: transform .2s linear;
+        }
+
+        .left__arrow--patrick img:hover {
+            transform: translateX(-15px);
+            transition: transform .2s linear;
+        }
+    }
+
+    .interview__right--patrick {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 5% 0% 5% 7%;
+
+        .right__sound--patrick {
+
+            display: flex;
+
+            .sound__pause--patrick {
+                margin-right: 3%;
+            }
+
+            .sound__barre--patrick {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 40%;
+                }
+            }
+        }
+
+        .right__container--patrick {
+
+            .container__title--patrick {
+                font-family: "old news";
+                font-size: 48px;
+                background-color:#000000;
+                width: 40%;
+                color:white;
+                margin-bottom: 3%;
+                transform: translateX(850px);
+                opacity: 0;
+            }
+
+            .container__title--patrick:hover {
+                transform: translateX(25px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle--patrick {
+                font-family: "old news";
+                font-size: 30px;
+                background-color:#000000;
+                width: 60%;
+                color:white;
+                opacity: 0;
+                transform: translateX(850px);
+                transition: transform .2s linear;
+            }
+
+            .container__subtitle--patrick:hover {
+                transform: translateX(40px);
+                transition: transform .2s linear;
+            }
+
+            .is-coming {
+                opacity: 1;
+                transform: translateX(0);
+                transition: transform .7s linear, opacity .7s linear;
+            }
+        }
+
+        .right__citation--patrick {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 35px;
+            background-color:#000000;
+            width: 70%;
+            color:white;
+            padding: 5%;
+            overflow: scroll;
+            transform: translateX(850px);
+            opacity: 0;
+            transition: transform .2s linear;
+            overflow-y: hidden;
+        }
+
+        .right__citation--patrick:hover {
+            transform: translateX(40px);
+            transition: transform .2s linear;
+        }
+
+        .is-coming {
+            opacity: 1;
+            transform: translateX(0);
+            transition: transform .7s linear, opacity .7s linear;
+        }
+    }
+}
+
+.interview__left.is-coming,
+.interview__left--harley.is-coming,
+.interview__left--patrick.is-coming  {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform .7s linear, opacity .7s linear;
+}
+
+.right__sound--marko,
+.right__sound--patrick,
+.right__sound--harley {
+    opacity: 0;
+    transform: translateY(-160px);
+}
+
+.right__sound--marko.is-spotted,
+.right__sound--patrick.is-spotted,
+.right__sound--harley.is-spotted {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform .7s linear, opacity 1.2s linear;  
+}
+
+.citation__text {
+    text-align: center;
+} 
+
+.is-flex {
+    display: flex;
+}
+
+.is-reducing {  
+    opacity: 0;
+    transition: opacity .8s linear;
+}
+
+.is-none {
+    display: none;
+}
+
+.is-mounted {
+    transform: translateY(0%);
+    transition: transform 1.2s ease-in-out;
+}
+
+.redirection {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/oldpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .redirection__title {
+        font-family: 'Abhaya Libre', serif;
+        font-size: 50px;
+        margin-bottom: 50px;
+        font-weight: bold;
+    }
+
+    img {
+        width: 35vw;
+        height: 450px;
+    }
+
+    .interviews__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .interviews__img {
+        z-index: 1;
+        margin-left: 5%;
+    }
+
+    .interviews__text {
+            display: none;
+            z-index: 2;
+            color:white;
+            font-size: 36px;
+            font-family: "old news";
+            position: absolute;
+            top: 40%;
+            margin-left: 3%;
+            background-color:#000000;
+            text-align: center; 
+    }
+
+    .interviews__img:hover .interviews__text {
+        display: block;
+      }
+}
